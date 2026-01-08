@@ -20,6 +20,8 @@ Este proyecto incluye un header completo con sistema de inicio de sesión y gest
 ✅ Página de perfil con formulario de edición
 ✅ Diseño moderno y profesional
 ✅ Compatibilidad con dispositivos móviles
+✅ Protección CSRF implementada
+✅ Chatbot integrado en la página principal
 
 ## Credenciales de prueba:
 
@@ -74,11 +76,22 @@ $stmt->execute();
 ⚠️ **IMPORTANTE**: Este es un ejemplo educativo. Para producción debes:
 
 1. Usar password_hash() y password_verify() para las contraseñas
-2. Implementar protección CSRF
+2. Protección CSRF implementada (ya incluida)
 3. Validar y sanitizar todas las entradas
 4. Usar prepared statements para prevenir SQL injection
 5. Implementar límites de intentos de login
 6. Usar HTTPS en producción
+
+## Chatbot integrado:
+
+El proyecto incluye un chatbot interactivo integrado en `index.php` que proporciona información sobre el Club de Socios. Características del chatbot:
+
+- Respuestas rápidas con botones para Contacto, Horarios, Pádel, Sauna y Gimnasio
+- Base de conocimientos sobre servicios del club
+- Interfaz moderna y responsive
+- Funciona sin recargar la página
+
+Para acceder al chatbot, haz clic en el botón flotante (💬) en la esquina inferior derecha de `index.php`.
 
 ## Estructura de sesión:
 
@@ -86,3 +99,4 @@ Las variables de sesión utilizadas son:
 - `$_SESSION['usuario_id']` - ID del usuario
 - `$_SESSION['usuario_nombre']` - Nombre completo del usuario
 - `$_SESSION['usuario_email']` - Email del usuario
+- `$_SESSION['csrf_token']` - Token CSRF para protección contra ataques

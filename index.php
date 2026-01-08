@@ -1,67 +1,18 @@
-<?php include 'header.php'; ?>
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <style>
-        .main-content {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        .welcome-box {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .welcome-box h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 32px;
-        }
-        
-        .welcome-box p {
-            color: #7f8c8d;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-        
-        .feature-card h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .feature-card p {
-            color: #7f8c8d;
-            line-height: 1.6;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Sitio Web</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
+    <?php include 'header.php'; ?>
+
     <div class="main-content">
         <div class="welcome-box">
             <?php if(isset($_SESSION['usuario_id'])): ?>
@@ -93,5 +44,26 @@
             </div>
         </div>
     </div>
+
+    <!-- Chatbot -->
+    <button class="chatbot-toggle" id="chatbotToggle">💬</button>
+    
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3>🎾 Club de Socios</h3>
+            <p>Asistente Virtual</p>
+        </div>
+        
+        <div class="chatbot-messages" id="chatbotMessages"></div>
+        
+        <div class="quick-replies" id="chatbotQuickReplies"></div>
+        
+        <div class="chatbot-input">
+            <input type="text" id="chatbotUserInput" placeholder="Escribe tu mensaje...">
+            <button onclick="chatbotSendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="js/chatbot.js"></script>
 </body>
 </html>
